@@ -25,6 +25,33 @@ function shuffle(array) {
     return array;
 }
 
+const figures = [
+    '<li class="card"><i class="fa fa-diamond"></i></li>',
+    '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
+    '<li class="card"><i class="fa fa-anchor"></i></li>',
+    '<li class="card"><i class="fa fa-bolt"></i></li>',
+    '<li class="card"><i class="fa fa-cube"></i></li>',
+    '<li class="card"><i class="fa fa-anchor"></i></li>',
+    '<li class="card"><i class="fa fa-leaf"></i></li>',
+    '<li class="card"><i class="fa fa-bicycle"></i></li>',
+    '<li class="card"><i class="fa fa-diamond"></i></li>',
+    '<li class="card"><i class="fa fa-bomb"></i></li>',
+    '<li class="card"><i class="fa fa-leaf"></i></li>',
+    '<li class="card"><i class="fa fa-bomb"></i></li>',
+    '<li class="card"><i class="fa fa-bolt"></i></li>',
+    '<li class="card"><i class="fa fa-bicycle"></i></li>',
+    '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
+    '<li class="card"><i class="fa fa-cube"></i></li>'
+];
+
+function montar() {
+    let temp = shuffle(figures);
+        for (let i = 0; i < figures.length; i++) {
+        $('.deck').append(temp[i]);
+    }
+}
+
+montar();
 
 /*
  * set up the event listener for a card. If a card is clicked:
