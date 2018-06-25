@@ -91,6 +91,7 @@ $('ul').on('click', 'li', function() {
         fig2 = $(this);
         abrirCarta(fig2, 1);
         if (open[0] != open[1]) {
+            erro(fig1, fig2);
             temp--;
         } else {
             acerto(fig1, fig2);
