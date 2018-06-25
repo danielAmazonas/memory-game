@@ -44,7 +44,7 @@ h3 {
  */
 
 .deck {
-    width: 660px;
+    max-width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
@@ -73,7 +73,7 @@ h3 {
 
 .deck .card.open {
     transition: 1s;
-    transform: rotateY(3.142rad);
+    transform: rotateY(6.248rad);
     background: #02b3e4;
     cursor: default;
 }

@@ -53,11 +53,12 @@ function montar() {
 
 montar();
 
-let open = [];
-let fig1, fig2;
-let temp = 0;
-let move = 0;
-const star = '<li><i class="fa fa-star"></i></li>';
+let open = []; // classe da carta
+let fig1, fig2; // carta1 e carta2
+let temp = 0; // conta cliques para atribuir valor a carta
+let move = 0; // qtd movimentos
+let segundos = 0; // tempo
+let parar; // parar tempo
 
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
@@ -83,6 +84,9 @@ function erro(figura1, figura2) {
 }
 
 function fechar(figura1, figura2) {
+    $('li').click(function() {
+        $('i').off('click');
+    });
     figura1.toggleClass('error');
     figura2.toggleClass('error');
 }
@@ -101,6 +105,19 @@ function removerEstrela() {
 function concluir() {
 
 }
+
+function tempo() {
+    var el = $('#time');
+
+    function incrementarTempo() {
+        segundos += 1;
+        el.text(segundos + ' seconds.');
+    }
+
+    parar = setInterval(incrementarTempo, 1000);
+}
+
+tempo();
 
 $('.restart').click(function() {
     location.reload();
@@ -124,18 +141,19 @@ $('ul').on('click', 'li', function() {
     } else {
         fig2 = $(this);
         abrirCarta(fig2, 1);
-        if (open[0] != open[1]) {
-            erro(fig1, fig2);
-            temp--;
-            setTimeout(function() {
-                fechar(fig1, fig2);
-            }, 1600);
-        } else {
-            acerto(fig1, fig2);
-            fig1.click(false);
-            fig2.click(false);
-            temp--;
-        }
+        temp--;
+        setTimeout(function() {
+            if (open[0] != open[1]) {
+                erro(fig1, fig2);
+                setTimeout(function() {
+                    fechar(fig1, fig2);
+                }, 1600);
+            } else {
+                acerto(fig1, fig2);
+                fig1.click(false);
+                fig2.click(false);
+            }
+        }, 1000);
     }
 });
 
