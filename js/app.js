@@ -55,6 +55,7 @@ montar();
 
 let open = [];
 let fig1, fig2;
+let temp = 0;
 
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
@@ -63,29 +64,38 @@ function abrirCarta(figura, posicao) {
 }
 
 function acerto(figura1, figura2) {
-    figura1.removeClass('open show');
-    figura2.removeClass('open show');
+    figura1.toggleClass('open show');
+    figura2.toggleClass('open show');
     figura1.addClass('match');
     figura2.addClass('match');
     open.pop();
-    open.pop();   
+    open.pop();
+}
+
+function erro(figura1, figura2) {
+    figura1.toggleClass('open show');
+    figura2.toggleClass('open show');
+    figura1.addClass('error');
+    figura2.addClass('error');
+    open.pop();
+    open.pop();
 }
 
 $('ul').on('click', 'li', function() {
-    if (open.length != 0) {
+    
+    if (temp === 0) {
         fig1 = $(this);
         abrirCarta(fig1, 0);
+        temp++;
     } else {
         fig2 = $(this);
         abrirCarta(fig2, 1);
-    }
-
-    if (open[0] == open[1]) {
-        acerto(fig1, fig2);
-        open.pop();
-        open.pop();
-    } else {
-
+        if (open[0] != open[1]) {
+            temp--;
+        } else {
+            acerto(fig1, fig2);
+            temp--;
+        }
     }
 });
 
