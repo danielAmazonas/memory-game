@@ -62,6 +62,15 @@ function abrirCarta(figura, posicao) {
     figura.click(false);
 }
 
+function acerto(figura1, figura2) {
+    figura1.removeClass('open show');
+    figura2.removeClass('open show');
+    figura1.addClass('match');
+    figura2.addClass('match');
+    open.pop();
+    open.pop();   
+}
+
 $('ul').on('click', 'li', function() {
     if (open.length != 0) {
         fig1 = $(this);
@@ -69,6 +78,14 @@ $('ul').on('click', 'li', function() {
     } else {
         fig2 = $(this);
         abrirCarta(fig2, 1);
+    }
+
+    if (open[0] == open[1]) {
+        acerto(fig1, fig2);
+        open.pop();
+        open.pop();
+    } else {
+
     }
 });
 
