@@ -56,6 +56,7 @@ montar();
 let open = [];
 let fig1, fig2;
 let temp = 0;
+let move = 0;
 
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
@@ -85,8 +86,13 @@ function fechar(figura1, figura2) {
     figura2.toggleClass('error');
 }
 
+function contar() {
+    move++;
+    let count = $('.moves').text(move);
+}
+
 $('ul').on('click', 'li', function() {
-    
+    contar();
     if (temp === 0) {
         fig1 = $(this);
         abrirCarta(fig1, 0);
@@ -98,7 +104,7 @@ $('ul').on('click', 'li', function() {
             erro(fig1, fig2);
             temp--;
             setTimeout(function() {
-                fechar(fig1, fig2)
+                fechar(fig1, fig2);
             }, 1600);
         } else {
             acerto(fig1, fig2);
