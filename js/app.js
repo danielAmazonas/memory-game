@@ -46,17 +46,31 @@ const figures = [
 
 function montar() {
     let temp = shuffle(figures);
-        for (let i = 0; i < figures.length; i++) {
+    for (let i = 0; i < figures.length; i++) {
         $('.deck').append(temp[i]);
     }
 }
 
 montar();
 
-$('ul').on('click', 'li', function() {
-    $(this).addClass('open show');
-});
+let open = [];
+let fig1, fig2;
 
+function abrirCarta(figura, posicao) {
+    figura.addClass('open show');
+    open[posicao] = figura.children().attr('class');
+    figura.click(false);
+}
+
+$('ul').on('click', 'li', function() {
+    if (open.length != 0) {
+        fig1 = $(this);
+        abrirCarta(fig1, 0);
+    } else {
+        fig2 = $(this);
+        abrirCarta(fig2, 1);
+    }
+});
 
 /*
  * set up the event listener for a card. If a card is clicked:
