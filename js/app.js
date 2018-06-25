@@ -25,6 +25,7 @@ function shuffle(array) {
     return array;
 }
 
+// Array de figuras
 const figures = [
     '<li class="card"><i class="fa fa-diamond"></i></li>',
     '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
@@ -44,6 +45,7 @@ const figures = [
     '<li class="card"><i class="fa fa-cube"></i></li>'
 ];
 
+// Montar o Deck de modo randomico
 function montar() {
     let temp = shuffle(figures);
     for (let i = 0; i < figures.length; i++) {
@@ -51,20 +53,25 @@ function montar() {
     }
 }
 
+// Chama o método montar
 montar();
 
+// Variáveis de controle
 let open = []; // classe da carta
 let fig1, fig2; // carta1 e carta2
 let temp = 0; // conta cliques para atribuir valor a carta
 let move = 0; // qtd movimentos
 let segundos = 0; // tempo
 let parar; // parar tempo
+const fecharCarta = 1550; // tempo para fechar a carta
 
+// Função para abrir carta
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
     open[posicao] = figura.children().attr('class');
 }
 
+// Função para setar classes css se acertar
 function acerto(figura1, figura2) {
     figura1.toggleClass('open show');
     figura2.toggleClass('open show');
@@ -74,6 +81,7 @@ function acerto(figura1, figura2) {
     open.pop();
 }
 
+// Função para setar classess css se errar
 function erro(figura1, figura2) {
     figura1.toggleClass('open show');
     figura2.toggleClass('open show');
@@ -83,6 +91,7 @@ function erro(figura1, figura2) {
     open.pop();
 }
 
+// Função para fechar as cartas se errar
 function fechar(figura1, figura2) {
     $('li').click(function() {
         $('i').off('click');
@@ -91,21 +100,25 @@ function fechar(figura1, figura2) {
     figura2.toggleClass('error');
 }
 
+// Função para contar movimentos
 function contar() {
     move++;
     $('.moves').text(move);
 }
 
+// Função para remover estrelas
 function removerEstrela() {
     var li;
     li = $('.stars').children('ul li:first');
     li.remove();
 }
 
+// Função que chama o modal ao acertar todas as cartas
 function concluir() {
 
 }
 
+// Função que cronometra a partida
 function tempo() {
     var el = $('#time');
 
@@ -113,19 +126,24 @@ function tempo() {
         segundos += 1;
         el.text(segundos + ' seconds.');
     }
-
+    // Variável parar parar o tempo
     parar = setInterval(incrementarTempo, 1000);
 }
 
+// Chama o método tempo
 tempo();
 
+// Ação do reload
 $('.restart').click(function() {
     location.reload();
 });
 
+// Ação do clique nas cartas
 $('ul').on('click', 'li', function() {
+    // Contar movimentos
     contar();
 
+    // Condição de movimentos, 12 remove uma estrela, 25 outra e 50 a última
     if (move === 12) {
         removerEstrela();
     } else if (move === 25) {
@@ -134,6 +152,7 @@ $('ul').on('click', 'li', function() {
         removerEstrela();
     }
     
+    // Usa a varável temp para saber se é a primeira carta ou a segunda
     if (temp === 0) {
         fig1 = $(this);
         abrirCarta(fig1, 0);
@@ -147,7 +166,7 @@ $('ul').on('click', 'li', function() {
                 erro(fig1, fig2);
                 setTimeout(function() {
                     fechar(fig1, fig2);
-                }, 1600);
+                }, fecharCarta);
             } else {
                 acerto(fig1, fig2);
                 fig1.click(false);
