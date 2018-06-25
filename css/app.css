@@ -71,6 +71,11 @@ h3 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
+img {
+    opacity: 0.0;
+    border-radius: 3px;
+}
+
 .deck .card.open {
     transition: 1s;
     transform: rotateY(6.248rad);
@@ -78,22 +83,25 @@ h3 {
     cursor: default;
 }
 
-.deck .card.show {
+.deck .card.show img {
     font-size: 33px;
+    opacity: 1;
 }
 
-.deck .card.match {
+.deck .card.match img {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
     animation: pulse-animation 0.5s;
+    opacity: 1;
 }
 
-.deck .card.error {
+.deck .card.error img {
     cursor: default;
     background: red;
     font-size: 33px;
-    animation: shake 0.5s; 
+    animation: shake 0.5s;
+    opacity: 1;
 }
 
 @keyframes shake {

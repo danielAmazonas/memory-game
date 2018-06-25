@@ -25,8 +25,8 @@ function shuffle(array) {
     return array;
 }
 
-// Array de figuras
-const figures = [
+// Array de figuras padrão
+/*const figures = [
     '<li class="card"><i class="fa fa-diamond"></i></li>',
     '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
     '<li class="card"><i class="fa fa-anchor"></i></li>',
@@ -43,12 +43,32 @@ const figures = [
     '<li class="card"><i class="fa fa-bicycle"></i></li>',
     '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
     '<li class="card"><i class="fa fa-cube"></i></li>'
+];*/
+
+// Array de figuras Street Fighter II
+const figuresSF = [
+    '<li class="card"><img class="ryu" src="img/ryu.png" alt="Ryu"></li>',
+    '<li class="card"><img class="ken" src="img/ken.png" alt="Ken"></li>',
+    '<li class="card"><img class="guile" src="img/guile.png" alt="Guile"></li>',
+    '<li class="card"><img class="blanka" src="img/blanka.png" alt="Blanka"></li>',
+    '<li class="card"><img class="dhalsin" src="img/dhalsin.png" alt="Dhalsin"></li>',
+    '<li class="card"><img class="zangief" src="img/zangief.png" alt="Zangief"></li>',
+    '<li class="card"><img class="e-honda" src="img/e-honda.png" alt="E-Honda"></li>',
+    '<li class="card"><img class="chun-li" src="img/chun-li.png" alt="Chun-Li"></li>',
+    '<li class="card"><img class="ryu" src="img/ryu.png" alt="Ryu"></li>',
+    '<li class="card"><img class="ken" src="img/ken.png" alt="Ken"></li>',
+    '<li class="card"><img class="guile" src="img/guile.png" alt="Guile"></li>',
+    '<li class="card"><img class="blanka" src="img/blanka.png" alt="Blanka"></li>',
+    '<li class="card"><img class="dhalsin" src="img/dhalsin.png" alt="Dhalsin"></li>',
+    '<li class="card"><img class="zangief" src="img/zangief.png" alt="Zangief"></li>',
+    '<li class="card"><img class="e-honda" src="img/e-honda.png" alt="E-Honda"></li>',
+    '<li class="card"><img class="chun-li" src="img/chun-li.png" alt="Chun-Li"></li>'
 ];
 
 // Montar o Deck de modo randomico
 function montar() {
-    let temp = shuffle(figures);
-    for (let i = 0; i < figures.length; i++) {
+    let temp = shuffle(figuresSF);
+    for (let i = 0; i < figuresSF.length; i++) {
         $('.deck').append(temp[i]);
     }
 }
