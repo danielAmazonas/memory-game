@@ -80,6 +80,14 @@ img {
     border-radius: 6px;
 }
 
+#check {
+    opacity: 1;
+}
+
+#resultado {
+    text-align: center;
+}
+
 .deck .card.open {
     transition: 1s;
     transform: rotateY(6.248rad);

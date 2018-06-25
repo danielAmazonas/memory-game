@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt">
+
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
@@ -10,11 +11,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery Modal (http://jquerymodal.com/) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>Matching Game</h1>
+            <h1>Matching Game SFII</h1>
             <h3 id="time">0 second.</h3>
         </header>
         <section class="score-panel">
@@ -29,9 +34,22 @@
             </div>
         </section>
         <ul class="deck">
-            
+
         </ul>
     </div>
+    <!-- Modal -->
+    <div id="resultado" class="modal">
+        <img id="check" src="img/check.png" alt="Check">
+        <h2>Congratulations! You Won!</h2>
+        <p><span id="pontuacao"></span></p>
+        <p>Wooooooooo!</p>
+        <a href="#" rel="modal:close">Close</a>
+    </div>
+
+    <!-- Link para modal -->
+    <p>
+        <a id="linkResultado" href="#resultado" rel="modal:open"></a>
+    </p>
     <script src="js/app.js"></script>
 </body>
 

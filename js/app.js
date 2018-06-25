@@ -84,6 +84,8 @@ let move = 0; // qtd movimentos
 let segundos = 0; // tempo
 let parar; // parar tempo
 const fecharCarta = 1550; // tempo para fechar a carta
+let cartas = 0;
+let estrelas = 3;
 
 // Função para abrir carta
 function abrirCarta(figura, posicao) {
@@ -113,9 +115,6 @@ function erro(figura1, figura2) {
 
 // Função para fechar as cartas se errar
 function fechar(figura1, figura2) {
-    $('li').click(function() {
-        $('i').off('click');
-    });
     figura1.toggleClass('error');
     figura2.toggleClass('error');
 }
@@ -131,11 +130,14 @@ function removerEstrela() {
     var li;
     li = $('.stars').children('ul li:first');
     li.remove();
+    estrelas--;
 }
 
 // Função que chama o modal ao acertar todas as cartas
 function concluir() {
-
+    clearInterval(parar);
+    document.getElementById('linkResultado').click();
+    $('#pontuacao').text('With ' + move + ' Moves and ' + estrelas + ' Stars in ' + segundos + ' seconds.');
 }
 
 // Função que cronometra a partida
@@ -163,10 +165,10 @@ $('ul').on('click', 'li', function() {
     // Contar movimentos
     contar();
 
-    // Condição de movimentos, 12 remove uma estrela, 25 outra e 50 a última
-    if (move === 12) {
+    // Condição de movimentos, 19 remove uma estrela, 27 outra e 50 a última
+    if (move === 19) {
         removerEstrela();
-    } else if (move === 25) {
+    } else if (move === 27) {
         removerEstrela();
     } else if (move === 50) {
         removerEstrela();
@@ -181,18 +183,27 @@ $('ul').on('click', 'li', function() {
         fig2 = $(this);
         abrirCarta(fig2, 1);
         temp--;
+        $('li').css('pointer-events', 'none');
         setTimeout(function() {
             if (open[0] != open[1]) {
                 erro(fig1, fig2);
                 setTimeout(function() {
                     fechar(fig1, fig2);
+                    $('li').css('pointer-events', 'auto');
                 }, fecharCarta);
             } else {
                 acerto(fig1, fig2);
                 fig1.click(false);
                 fig2.click(false);
+                $('li').css('pointer-events', 'auto');
+                cartas++;
             }
-        }, 1000);
+            
+            // Condição de fim de jogo
+            if (cartas == 8) {
+                concluir();
+            }
+        }, 1550);
     }
 });
 
