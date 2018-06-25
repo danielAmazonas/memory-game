@@ -160,15 +160,19 @@ $('.restart').click(function() {
     location.reload();
 });
 
+$('#playAgain').click(function() {
+    location.reload();
+});
+
 // Ação do clique nas cartas
 $('ul').on('click', 'li', function() {
     // Contar movimentos
     contar();
 
-    // Condição de movimentos, 19 remove uma estrela, 27 outra e 50 a última
-    if (move === 19) {
+    // Condição de movimentos, 32 remove uma estrela, 40 outra e 50 a última
+    if (move === 32) {
         removerEstrela();
-    } else if (move === 27) {
+    } else if (move === 40) {
         removerEstrela();
     } else if (move === 50) {
         removerEstrela();
