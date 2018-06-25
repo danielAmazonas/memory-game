@@ -60,7 +60,6 @@ let temp = 0;
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
     open[posicao] = figura.children().attr('class');
-    figura.click(false);
 }
 
 function acerto(figura1, figura2) {
@@ -81,6 +80,11 @@ function erro(figura1, figura2) {
     open.pop();
 }
 
+function fechar(figura1, figura2) {
+    figura1.toggleClass('error');
+    figura2.toggleClass('error');
+}
+
 $('ul').on('click', 'li', function() {
     
     if (temp === 0) {
@@ -93,8 +97,13 @@ $('ul').on('click', 'li', function() {
         if (open[0] != open[1]) {
             erro(fig1, fig2);
             temp--;
+            setTimeout(function() {
+                fechar(fig1, fig2)
+            }, 1600);
         } else {
             acerto(fig1, fig2);
+            fig1.click(false);
+            fig2.click(false);
             temp--;
         }
     }
