@@ -98,6 +98,10 @@ function pontuar() {
     $('.stars').append(star);
 }
 
+$('.restart').click(function() {
+    location.reload();
+});
+
 $('ul').on('click', 'li', function() {
     contar();
     if (temp === 0) {
