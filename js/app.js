@@ -57,6 +57,8 @@ let open = [];
 let fig1, fig2;
 let temp = 0;
 let move = 0;
+let ponto = 0;
+const star = '<li><i class="fa fa-star"></i></li>';
 
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
@@ -88,7 +90,12 @@ function fechar(figura1, figura2) {
 
 function contar() {
     move++;
-    let count = $('.moves').text(move);
+    $('.moves').text(move);
+}
+
+function pontuar() {
+    ponto++;
+    $('.stars').append(star);
 }
 
 $('ul').on('click', 'li', function() {
@@ -110,6 +117,7 @@ $('ul').on('click', 'li', function() {
             acerto(fig1, fig2);
             fig1.click(false);
             fig2.click(false);
+            pontuar();
             temp--;
         }
     }
