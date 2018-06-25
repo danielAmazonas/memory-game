@@ -33,6 +33,12 @@ h1 {
     font-weight: 300;
 }
 
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
 /*
  * Styles for the deck of cards
  */

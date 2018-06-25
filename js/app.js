@@ -57,7 +57,6 @@ let open = [];
 let fig1, fig2;
 let temp = 0;
 let move = 0;
-let ponto = 0;
 const star = '<li><i class="fa fa-star"></i></li>';
 
 function abrirCarta(figura, posicao) {
@@ -93,9 +92,14 @@ function contar() {
     $('.moves').text(move);
 }
 
-function pontuar() {
-    ponto++;
-    $('.stars').append(star);
+function removerEstrela() {
+    var li;
+    li = $('.stars').children('ul li:first');
+    li.remove();
+}
+
+function concluir() {
+
 }
 
 $('.restart').click(function() {
@@ -104,6 +108,15 @@ $('.restart').click(function() {
 
 $('ul').on('click', 'li', function() {
     contar();
+
+    if (move === 12) {
+        removerEstrela();
+    } else if (move === 25) {
+        removerEstrela();
+    } else if (move === 50) {
+        removerEstrela();
+    }
+    
     if (temp === 0) {
         fig1 = $(this);
         abrirCarta(fig1, 0);
@@ -121,7 +134,6 @@ $('ul').on('click', 'li', function() {
             acerto(fig1, fig2);
             fig1.click(false);
             fig2.click(false);
-            pontuar();
             temp--;
         }
     }
