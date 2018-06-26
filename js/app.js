@@ -86,13 +86,13 @@ let move = 0; // qtd movimentos
 let segundos = 0; // tempo
 let parar; // parar tempo
 const fecharCarta = 1550; // tempo para fechar a carta
-let cartas = 0;
-let estrelas = 3;
+let cartas = 0; // contador de pares acertados (total 8)
+let estrelas = 3; // contador inicial das estrelas
 
 /**
  * @description Função para abrir carta
- * @param {HTMLElement} figura 
- * @param {number} posicao 
+ * @param {HTMLElement} figura
+ * @param {number} posicao
  */
 function abrirCarta(figura, posicao) {
     figura.addClass('open show');
@@ -101,8 +101,8 @@ function abrirCarta(figura, posicao) {
 
 /**
  * @description Função para setar classes css se acertar
- * @param {HTMLElement} figura1 
- * @param {HTMLElement} figura2 
+ * @param {HTMLElement} figura1
+ * @param {HTMLElement} figura2
  */
 function acerto(figura1, figura2) {
     figura1.toggleClass('open show');
@@ -115,8 +115,8 @@ function acerto(figura1, figura2) {
 
 /**
  * @description Função para setar classess css se errar
- * @param {HTMLElement} figura1 
- * @param {HTMLElement} figura2 
+ * @param {HTMLElement} figura1
+ * @param {HTMLElement} figura2
  */
 function erro(figura1, figura2) {
     figura1.toggleClass('open show');
@@ -129,8 +129,8 @@ function erro(figura1, figura2) {
 
 /**
  * @description Função para fechar as cartas se errar
- * @param {HTMLElement} figura1 
- * @param {HTMLElement} figura2 
+ * @param {HTMLElement} figura1
+ * @param {HTMLElement} figura2
  */
 function fechar(figura1, figura2) {
     figura1.toggleClass('error');
@@ -161,7 +161,8 @@ function removerEstrela() {
 function concluir() {
     clearInterval(parar);
     document.getElementById('linkResultado').click();
-    $('#pontuacao').text('With ' + move + ' Moves and ' + estrelas + ' Stars in ' + segundos + ' seconds.');
+    $('#pontuacao').text('With ' + move + ' Moves and ' + estrelas + ' Stars in '
+    + segundos + ' seconds.');
 }
 
 /**
@@ -174,7 +175,7 @@ function tempo() {
         segundos += 1;
         el.text(segundos + ' seconds.');
     }
-    // Variável parar parar o tempo
+    // Variável para parar o tempo
     parar = setInterval(incrementarTempo, 1000);
 }
 
@@ -220,7 +221,7 @@ $('ul').on('click', 'li', function() {
         fig2 = $(this);
         abrirCarta(fig2, 1);
         temp--;
-        $('li').css('pointer-events', 'none');
+        $('li').css('pointer-events', 'none'); // Desabilitar eventos, até a carta fechar
         setTimeout(function() {
             if (open[0] != open[1]) {
                 erro(fig1, fig2);
@@ -230,8 +231,8 @@ $('ul').on('click', 'li', function() {
                 }, fecharCarta);
             } else {
                 acerto(fig1, fig2);
-                fig1.click(false);
-                fig2.click(false);
+                fig1.click(false); // Desabilitar clique na carta que formou o par
+                fig2.click(false); // Desabilitar clique na carta que formou o par
                 $('li').css('pointer-events', 'auto');
                 cartas++;
             }
