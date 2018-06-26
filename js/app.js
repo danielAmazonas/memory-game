@@ -47,22 +47,22 @@ function shuffle(array) {
 
 // Array de figuras Street Fighter II
 const figuresSF = [
-    '<li class="card"><img class="ryu" src="img/ryu.png" alt="Ryu"></li>',
-    '<li class="card"><img class="ken" src="img/ken.png" alt="Ken"></li>',
-    '<li class="card"><img class="guile" src="img/guile.png" alt="Guile"></li>',
-    '<li class="card"><img class="blanka" src="img/blanka.png" alt="Blanka"></li>',
-    '<li class="card"><img class="dhalsin" src="img/dhalsin.png" alt="Dhalsin"></li>',
-    '<li class="card"><img class="zangief" src="img/zangief.png" alt="Zangief"></li>',
-    '<li class="card"><img class="e-honda" src="img/e-honda.png" alt="E-Honda"></li>',
-    '<li class="card"><img class="chun-li" src="img/chun-li.png" alt="Chun-Li"></li>',
-    '<li class="card"><img class="ryu" src="img/ryu.png" alt="Ryu"></li>',
-    '<li class="card"><img class="ken" src="img/ken.png" alt="Ken"></li>',
-    '<li class="card"><img class="guile" src="img/guile.png" alt="Guile"></li>',
-    '<li class="card"><img class="blanka" src="img/blanka.png" alt="Blanka"></li>',
-    '<li class="card"><img class="dhalsin" src="img/dhalsin.png" alt="Dhalsin"></li>',
-    '<li class="card"><img class="zangief" src="img/zangief.png" alt="Zangief"></li>',
-    '<li class="card"><img class="e-honda" src="img/e-honda.png" alt="E-Honda"></li>',
-    '<li class="card"><img class="chun-li" src="img/chun-li.png" alt="Chun-Li"></li>'
+    '<li class="card"><img class="ryu img-responsive" src="img/ryu.png" alt="Ryu"></li>',
+    '<li class="card"><img class="ken img-responsive" src="img/ken.png" alt="Ken"></li>',
+    '<li class="card"><img class="guile img-responsive" src="img/guile.png" alt="Guile"></li>',
+    '<li class="card"><img class="blanka img-responsive" src="img/blanka.png" alt="Blanka"></li>',
+    '<li class="card"><img class="dhalsin img-responsive" src="img/dhalsin.png" alt="Dhalsin"></li>',
+    '<li class="card"><img class="zangief img-responsive" src="img/zangief.png" alt="Zangief"></li>',
+    '<li class="card"><img class="e-honda img-responsive" src="img/e-honda.png" alt="E-Honda"></li>',
+    '<li class="card"><img class="chun-li img-responsive" src="img/chun-li.png" alt="Chun-Li"></li>',
+    '<li class="card"><img class="ryu img-responsive" src="img/ryu.png" alt="Ryu"></li>',
+    '<li class="card"><img class="ken img-responsive" src="img/ken.png" alt="Ken"></li>',
+    '<li class="card"><img class="guile img-responsive" src="img/guile.png" alt="Guile"></li>',
+    '<li class="card"><img class="blanka img-responsive" src="img/blanka.png" alt="Blanka"></li>',
+    '<li class="card"><img class="dhalsin img-responsive" src="img/dhalsin.png" alt="Dhalsin"></li>',
+    '<li class="card"><img class="zangief img-responsive" src="img/zangief.png" alt="Zangief"></li>',
+    '<li class="card"><img class="e-honda img-responsive" src="img/e-honda.png" alt="E-Honda"></li>',
+    '<li class="card"><img class="chun-li img-responsive" src="img/chun-li.png" alt="Chun-Li"></li>'
 ];
 
 // Montar o Deck de modo randomico

@@ -9,8 +9,10 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- jQuery Modal (http://jquerymodal.com/) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -19,33 +21,64 @@
 <body>
     <div class="container">
         <header>
-            <h1>Matching Game SFII</h1>
-            <h3 id="time">0 second.</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Matching Game SFII</h1>
+                    <h3 id="time">0 second.</h3>
+                </div>
+            </div>
         </header>
         <section class="score-panel">
-            <ul class="stars">
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <span class="moves"></span> Moves
-            <div class="restart">
-                <i class="fa fa-repeat"></i>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span class="moves"></span> Moves
+                    <div class="restart">
+                        <i class="fa fa-repeat"></i>
+                    </div>
+                </div>
             </div>
         </section>
-        <ul class="deck">
-
-        </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="deck">
+                    
+                </ul>
+            </div>
+        </div>
     </div>
     <!-- Modal -->
     <div id="resultado" class="modal">
-        <img id="check" src="img/check.png" alt="Check">
-        <h2>Congratulations! You Won!</h2>
-        <p><span id="pontuacao"></span></p>
-        <p>Wooooooooo!</p>
-        <input id="playAgain" type="button" value="Play again!">
+        <div class="row">
+            <div class="col-md-12">
+                <img id="check" src="img/check.png" alt="Check">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Congratulations! You Won!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p><span id="pontuacao"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Wooooooooo!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input id="playAgain" type="button" value="Play again!">
+            </div>
+        </div>
     </div>
-
     <!-- Link para modal -->
     <p>
         <a id="linkResultado" href="#resultado" rel="modal:open"></a>
